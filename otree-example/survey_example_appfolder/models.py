@@ -9,8 +9,8 @@ from otree.api import (
     currency_range,
 )
 
-author = 'your names and team objective go here'
-doc = 'Your app description goes here'
+author = 'Julia Schleißheimer'
+doc = 'Assignment 2'
 
 class Constants(BaseConstants):
     name_in_url = 'survey-example'
