@@ -9,10 +9,36 @@
 <br>
 <h2> First Survey of Julia Schleißheimer</h2>
     <hr>
-    This is a demo page
 
     <!-- This is the most basic way of implementing an input field -->
     {{ formfield "age_question"}}
+    {{ formfield "name_question"}}
+    <br>
+
+    <p><b>Which gender do you identify with?</b></p>
+    <input type="radio" name="gender" value="1" /> Male
+    <br>
+    <input type="radio" name="gender" value="2" /> Female
+    <br>
+    <input type="radio" name="gender" value="3" /> Divers
+    <br>
+    <input type="radio" name="gender" value="4" /> Prefer not to say
+    <br>
+    <br>
+
+    
+    <p><b>What is your highest degree?</b></p>
+    <input type="radio" name="academic_level" value="1" /> Abitur
+    <br>
+    <input type="radio" name="academic_level" value="2" /> Bachelor's degree
+    <br>
+    <input type="radio" name="academic_level" value="3" /> Master's degree
+    <br>
+    <input type="radio" name="academic_level" value="4" /> Other's
+    <br>
+    <br>
+
+    {{ formfield "study_question"}}  
 
    <button class="otree-btn-next btn btn-primary next-button otree-next-button">
     Next
