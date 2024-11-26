@@ -25,7 +25,15 @@ class Constants(BaseConstants):
     num_rounds = 1
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        '''this is a function by otree (same can not be changed)
+        which is creating a new subsession. Any variables that are needed to be custom
+        (so declaring it in a different way before) are created here'''
+        for p in self.get_players():
+            #here we want to declare the players to different groups (2 in total)
+            #we use a python function here from 'random' we imported earlier
+            p.group_assignment = random.Random().randint(0, 1)
+          
 
 class Group(BaseGroup):
     #we will only come to the group class when we look at advanced methods
