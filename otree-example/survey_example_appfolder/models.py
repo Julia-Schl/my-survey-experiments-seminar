@@ -42,4 +42,9 @@ class Player(BasePlayer):
     
     study_question = models.StringField(
         label= "<b>What is your study programm?</b> <br>(Please enter the full name in English.)")
+
+    #PopoutPage
+    popout_question = models.IntegerField(blank=True)
+    popout_yes = models.StringField(blank=True)
+    popout_no = models.StringField(blank=True)
                         

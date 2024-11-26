@@ -20,7 +20,12 @@ class EndPage(Page):
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
     form_model = Player
 
+class PopoutPage(Page):
+    form_model = Player
+    form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
+
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
-                QuestionPage,           
+                QuestionPage,
+                PopoutPage,           
                 EndPage]
