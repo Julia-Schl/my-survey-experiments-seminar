@@ -9,6 +9,7 @@ from .models import Constants, Player
 
 class Welcome(Page):
     form_model = Player
+    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width']
 
 #with the function before_next_page you can can control what should happen. It is a nice feature for filtering
 #or also setting variables
