@@ -24,13 +24,18 @@ class PopoutPage(Page):
     form_model = Player
     form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
 
-class PicturePage(Page):
+class PicturePage1(Page):
     form_model = Player
-    form_fields = ['condition']
+    form_fields = ['lecture_question']
+
+class PicturePage2(Page):
+    form_model = Player
+    form_fields = ['seminar_question']
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
                 QuestionPage,
                 PopoutPage,
-                PicturePage,           
+                PicturePage1,
+                PicturePage2,           
                 EndPage]

@@ -44,7 +44,12 @@ class Player(BasePlayer):
         label= "<b>What is your study programm?</b> <br>(Please enter the full name in English.)")
 
     #Question picture 1
-    condition = models.IntegerField(initial=-999) 
+    lecture_question = models.StringField(
+        label= "<b>What do you think is missing for lecture halls that are suitable for effective teaching?</b>")
+
+    #Question picture 2
+    seminar_question = models.StringField(
+        label= "<b>What do you think is missing in seminar rooms for effective teaching?</b>")
 
     #PopoutPage
     popout_question = models.IntegerField(blank=True)

@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<h2> Survey for Assignment 3 (Julia Schleißheimer) </h2>
+    <hr>    
+{% endblock %}
+
+{% block content %}
+<img   width="50%" height="50%" src="{% static 'seminar.jpg' %}" />
+
+<br>
+<br>
+<br>
+
+{{ formfield "seminar_question"}}
+
+<br>
+<!--this is how you code the next button in otree-->
+ <button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Weiter
+</button>
+{% endblock %}
