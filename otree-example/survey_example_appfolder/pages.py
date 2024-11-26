@@ -33,10 +33,18 @@ class PopoutPage(Page):
 class PicturePage1(Page):
     form_model = Player
     form_fields = ['lecture_question']
+    def is_displayed(self):
+        '''this is another otree specific function that regulates if a page is displayed or not '''
+        #this will show the page to anybody who has the right assignment so in this case 
+        return self.player.group_assignment == 1
 
 class PicturePage2(Page):
     form_model = Player
     form_fields = ['seminar_question']
+    def is_displayed(self):
+        '''this is another otree specific function that regulates if a page is displayed or not '''
+        #this will show the page to anybody who has the right assignment so in this case 
+        return self.player.group_assignment == 0
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
