@@ -36,7 +36,7 @@ class Subsession(BaseSubsession):
           
 
 class Group(BaseGroup):
-    #we will only come to the group class when we look at advanced methods
+    counter = models.IntegerField(initial = 0)
     pass
 
 
