@@ -63,6 +63,8 @@ class Player(BasePlayer):
     study_question = models.StringField(
         label= "<b>What is your study programm?</b> <br>(Please enter the full name in English.)")
 
+    hidden_input = models.IntegerField(initial=50, blank=True)
+
     #Question picture 1
     lecture_question = models.StringField(
         label= "<b>What do you think is missing for lecture halls that are suitable for effective teaching?</b>")
