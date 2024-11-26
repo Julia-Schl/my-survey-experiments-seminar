@@ -47,6 +47,7 @@ class Player(BasePlayer):
     operating_system = models.IntegerField()
     screen_height = models.IntegerField(initial=-999)
     screen_width = models.IntegerField(initial=-999)
+    time_start = models.StringField(initial='-999')
 
     #QuestianPage
     name_question = models.StringField(
@@ -56,14 +57,15 @@ class Player(BasePlayer):
         min=18, 
         max=100
     )
-    gender = models.IntegerField(initial=-999) 
+    gender = models.IntegerField(initial=-999, blank=False)
 
-    academic_level =models.IntegerField(initial=-999) 
+    academic_level =models.IntegerField(initial=-999, blank=False)
     
     study_question = models.StringField(
         label= "<b>What is your study programm?</b> <br>(Please enter the full name in English.)")
 
     hidden_input = models.IntegerField(initial=50, blank=True)
+    time_question = models.StringField(initial='-999')
 
     #Question picture 1
     lecture_question = models.StringField(
@@ -81,5 +83,6 @@ class Player(BasePlayer):
                         
     #EndPage
     group_assignment = models.IntegerField() #the variable we declared on top
+    
 
                         

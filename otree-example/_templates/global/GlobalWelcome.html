@@ -28,5 +28,13 @@
     var screen_height = screen.height;
     document.getElementById('screen_height').value = screen_height;
 
+
+
+    // TIME: we are going to write the time the participant entered the page to a variable
+    var time = new Date(); //creates the current time
+    var time = time.toISOString(); //to.ISOString() ensures we get miliseconds
+    document.getElementById('time_start').value = time; //we get the element (variable) we want to write the value to
+    //a sidenote: the time zone might be different in your localhost as in real life
+
 </script>
 {% endblock %}

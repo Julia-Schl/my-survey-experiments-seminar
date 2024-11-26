@@ -9,7 +9,7 @@ from .models import Constants, Player
 
 class Welcome(Page):
     form_model = Player
-    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width']
+    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'time_start']
 
 #with the function before_next_page you can can control what should happen. It is a nice feature for filtering
 #or also setting variables
@@ -20,7 +20,7 @@ class Welcome(Page):
 
 class QuestionPage(Page):
     form_model = Player
-    form_fields = ['age_question', 'name_question', 'gender', 'study_question', 'academic_level']
+    form_fields = ['age_question', 'name_question', 'gender', 'study_question', 'academic_level', 'time_question']
     
 
 class EndPage(Page):

@@ -1,4 +1,4 @@
-{% extends "global/Page.html" %}
+{% extends "global/GlobalQuestion.html" %}
 {% load otree static %}
 
 
@@ -8,31 +8,33 @@
 {% endblock %}
 
 {% block content %}
+<input id="time_question" type="hidden" name="time_question" />
+<br>
     <!-- This is the most basic way of implementing an input field -->
     {{ formfield "age_question"}}
     {{ formfield "name_question"}}
     <br>
 
     <p><b>Which gender do you identify with?</b></p>
-    <input type="radio" name="gender" value="1" /> Male
+    <input type="radio" name="gender" value="1" required/> Male
     <br>
-    <input type="radio" name="gender" value="2" /> Female
+    <input type="radio" name="gender" value="2" required/> Female
     <br>
-    <input type="radio" name="gender" value="3" /> Divers
+    <input type="radio" name="gender" value="3" required/> Divers
     <br>
-    <input type="radio" name="gender" value="4" /> Prefer not to say
+    <input type="radio" name="gender" value="4" required/> Prefer not to say
     <br>
     <br>
 
     
     <p><b>What is your highest degree?</b></p>
-    <input type="radio" name="academic_level" value="1" /> Abitur
+    <input type="radio" name="academic_level" value="1" required/> Abitur
     <br>
-    <input type="radio" name="academic_level" value="2" /> Bachelor's degree
+    <input type="radio" name="academic_level" value="2" required/> Bachelor's degree
     <br>
-    <input type="radio" name="academic_level" value="3" /> Master's degree
+    <input type="radio" name="academic_level" value="3" required/> Master's degree
     <br>
-    <input type="radio" name="academic_level" value="4" /> Other's
+    <input type="radio" name="academic_level" value="4" required/> Other's
     <br>
     <br>
 
