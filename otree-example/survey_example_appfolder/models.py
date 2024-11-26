@@ -37,7 +37,6 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     counter = models.IntegerField(initial = 0)
-    pass
 
 
 class Player(BasePlayer):
