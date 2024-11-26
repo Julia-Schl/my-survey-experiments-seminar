@@ -9,6 +9,13 @@ from otree.api import (
     currency_range,
 )
 
+#this is where we would import andy extra functions or packages we need from python
+import random 
+
+#we could also have a python script with custom functions in another file that we can import
+from survey_example_appfolder.HelperFunctions import random_number
+
+
 author = 'Julia Schleißheimer'
 doc = 'Assignment 3'
 
