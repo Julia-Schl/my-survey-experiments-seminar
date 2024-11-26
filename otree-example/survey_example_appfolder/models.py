@@ -42,7 +42,13 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
     
-#The Variables are structured on the base of pages
+    #Welcome
+    device_type = models.IntegerField()
+    operating_system = models.IntegerField()
+    screen_height = models.IntegerField(initial=-999)
+    screen_width = models.IntegerField(initial=-999)
+
+    #QuestianPage
     name_question = models.StringField(
         label= "<b>What is your name?</b>")
     age_question = models.IntegerField(
@@ -70,4 +76,8 @@ class Player(BasePlayer):
     popout_yes = models.StringField(blank=True)
     popout_no = models.StringField(blank=True)
     time_popout = models.StringField(initial='-999')
+                        
+    #EndPage
+    group_assignment = models.IntegerField() #the variable we declared on top
+
                         
