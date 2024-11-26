@@ -7,21 +7,21 @@
 {% block scripts %}
 <script>
     //Get variables needed for our popout
-    var merkelYes = document.getElementById('merkelYes');
+    var courseYes = document.getElementById('courseYes');
     var divYes = document.getElementById('divYes');
-    var merkelNo = document.getElementById('merkelNo');
+    var courseNo = document.getElementById('courseNo');
     var divNo = document.getElementById('divNo');
 
     // POPOUT: we are going to create a popout function that displays text only if some value is given in another question
     function popout() {
         console.log('searching for the elements')
         //the conditions and the implementation of showing the text
-        if (merkelYes.checked == true) {
+        if (courseYes.checked == true) {
             console.log('yes');
             divNo.style.display = "none";
             divYes.style.display = "block";
         }
-        if (merkelNo.checked == true) {
+        if (courseNo.checked == true) {
             console.log('no');
             divYes.style.display = "none";
             divNo.style.display = "block";
@@ -36,28 +36,28 @@
 <!-- this is how we implement a time taking variable  -->
 <input id="time_popout" type="hidden" name="time_popout" />
 <br>
-<h2> Survey Example </h2>
+<h2> Question about this course</h2>
 <hr>
-This is a page with popout questions and a retrieved timestamp.
+Now we are asking a few questions regarding your courses. <br>
 
 
 <div>
-    <p><b>Did you know that Merkel is known as a good baker?</b></p>
-    <div><input id="merkelYes" type="radio" name="popout_question" value="1" onclick="popout()" /> Yes</div>
-    <div><input id="merkelNo" type="radio" name="popout_question" value="2" onclick="popout()" /> No</div>
+    <p><b> <br>Are you still actively attending this course?</b></p>
+    <div><input id="courseYes" type="radio" name="popout_question" value="1" onclick="popout()" /> Yes</div>
+    <div><input id="courseNo" type="radio" name="popout_question" value="2" onclick="popout()" /> No</div>
     <br>
 </div>
 
 <!-- question asked if the do know merkel is a good baker -->
 <div id="divYes" style="display: none">
-    <p>How did you find that out?</p>
+    <p>Why are you attending this course? Please list all reasons.</p>
     <input type="text" name="popout_yes" />
     <br>
 </div>
 
 <!-- question asked if the don't know merkel is a good baker -->
 <div id="divNo" style="display: none">
-    <p>Do you not read the news?</p>
+    <p>Why are you not attending this course anymore?</p>
     <input type="text" name="popout_no" />
     <br>
 </div>

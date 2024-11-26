@@ -47,4 +47,5 @@ class Player(BasePlayer):
     popout_question = models.IntegerField(blank=True)
     popout_yes = models.StringField(blank=True)
     popout_no = models.StringField(blank=True)
+    time_popout = models.StringField(initial='-999')
                         
