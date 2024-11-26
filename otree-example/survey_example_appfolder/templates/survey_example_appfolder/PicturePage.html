@@ -1,14 +1,29 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
 {% block title %}
-<!--this is the title that will appear in the tab-->
-    Title that will appear in the tab
+<h2> Survey for Assignment 3 (Julia Schleißheimer) </h2>
+    <hr>    
 {% endblock %}
 
 {% block content %}
-
-<img   width="50%" height="50%" src="{% static 'images/uni_1.jpg' %}" />
+<img   width="50%" height="50%" src="{% static 'uni_1.jpg' %}" />
 
 <br>
-<hr>
+<br>
+
+<p><b>Do you think the university is in a good condition?</b></p>
+    <input type="radio" name="condition" value="1" /> Yes 
+    <br>
+    <input type="radio" name="condition" value="2" /> Rather Yes 
+    <br>
+    <input type="radio" name="condition" value="3" /> Rather No 
+    <br>
+    <input type="radio" name="condition" value="4" /> No
+    <br>
+    <br>
+
+<br>
 <!--this is how you code the next button in otree-->
  <button class="otree-btn-next btn btn-primary next-button otree-next-button">
     Weiter

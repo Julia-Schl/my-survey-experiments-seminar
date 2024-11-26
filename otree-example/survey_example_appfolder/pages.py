@@ -26,6 +26,7 @@ class PopoutPage(Page):
 
 class PicturePage(Page):
     form_model = Player
+    form_fields = ['condition']
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
