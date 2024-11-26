@@ -10,7 +10,7 @@ from otree.api import (
 )
 
 author = 'Julia Schleißheimer'
-doc = 'Assignment 2'
+doc = 'Assignment 3'
 
 class Constants(BaseConstants):
     name_in_url = 'survey-example'
