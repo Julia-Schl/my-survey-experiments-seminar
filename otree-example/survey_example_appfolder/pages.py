@@ -14,14 +14,12 @@ class Welcome(Page):
     form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'time_start', 'eligible_question']
 
     def before_next_page(self):
+        #here we are increasing the counter for each player that goes past the Welcome Page
+        #self.group.counter += 1
+
+#we want to detect all the screenouts and the quota reached right away
         detect_screenout(self)
-        detect_quota(self)
-    
-    def vars_for_template(self):
-        return {'participant_label': safe_json(self.participant.label),
-                'screenout': safe_json(self.player.screenout),
-                'quota': safe_json(self.player.quota)
-                }
+        #detect_quota(self)
 
 class GenderPage(Page):    
     form_model = Player

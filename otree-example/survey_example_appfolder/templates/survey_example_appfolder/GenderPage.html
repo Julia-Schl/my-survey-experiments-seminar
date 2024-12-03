@@ -2,32 +2,6 @@
 {% load otree static %}
 
 
-{% block title %}
-<h2> Survey for Assignment 4 (Julia Schleißheimer) </h2>
-    <hr>
-{% endblock %}
-
-
-{% block content %}
-<!-- persist-raw script input -->
-<script src="{% static 'persist-raw.js' %}"></script>
-
-    <p><b>Which gender do you identify with?</b></p>
-    <input type="radio" name="gender" value="1" required class="persist"/> Male
-    <br>
-    <input type="radio" name="gender" value="2" required class="persist"/> Female
-    <br>
-    <input type="radio" name="gender" value="3" required class="persist"/> Divers
-    <br>
-    <input type="radio" name="gender" value="4" required class="persist"/> Prefer not to say
-    <br>
-    
-   <button class="otree-btn-next btn btn-primary next-button otree-next-button">
-    Next
-</button> 
-
-{% endblock %}
-
 {% block scripts %}
 <script>
         window.onload = function () {
@@ -54,3 +28,30 @@ if (quota==1) {window.location.replace(url_quota);}
 
 </script>
 {% endblock %}
+
+{% block title %}
+<h2> Survey for Assignment 4 (Julia Schleißheimer) </h2>
+    <hr>
+{% endblock %}
+
+
+{% block content %}
+<!-- persist-raw script input -->
+<script src="{% static 'persist-raw.js' %}"></script>
+
+    <p><b>Which gender do you identify with?</b></p>
+    <input type="radio" name="gender" value="1" required class="persist"/> Male
+    <br>
+    <input type="radio" name="gender" value="2" required class="persist"/> Female
+    <br>
+    <input type="radio" name="gender" value="3" required class="persist"/> Divers
+    <br>
+    <input type="radio" name="gender" value="4" required class="persist"/> Prefer not to say
+    <br>
+    
+   <button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Next
+</button> 
+
+{% endblock %}
+
