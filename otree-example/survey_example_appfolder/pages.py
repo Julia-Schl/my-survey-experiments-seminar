@@ -19,33 +19,33 @@ class Welcome(Page):
 
 #we want to detect all the screenouts and the quota reached right away
         detect_screenout(self)
+        detect_quota(self)
+
+#class GenderPage(Page):    
+    #form_model = Player
+    #form_fields = ['gender']
+                
+    #def before_next_page(self):
+        #if self.player.gender == 1:  # Male
+            #self.group.counter_male += 1
+        #elif self.player.gender == 2:  # Female
+            #self.group.counter_female += 1
+
         #detect_quota(self)
 
-class GenderPage(Page):    
-    form_model = Player
-    form_fields = ['gender']
-                
-    def vars_for_template(self):
-        return {'participant_label': safe_json(self.participant.label),
-                'screenout': safe_json(self.player.screenout),
-                'quota': safe_json(self.player.quota)
-                }
-                
-    def before_next_page(self):
-        if self.player.gender == 1:  # Male
-            self.group.counter_male += 1
-        elif self.player.gender == 2:  # Female
-            self.group.counter_female += 1
+    #def vars_for_template(self):
+        #return {'participant_label': safe_json(self.participant.label),
+                #'screenout': safe_json(self.player.screenout),
+                #'quota': safe_json(self.player.quota)
+                #}
 
-        detect_quota(self)
-
-class AgePage(Page):    
-    form_model = Player
-    form_fields = ['age_question']
+#class AgePage(Page):    
+    #form_model = Player
+    #form_fields = ['age_question']
                 
-    def before_next_page(self):
-        detect_screenout(self)
-        detect_quota(self)
+    #def before_next_page(self):
+       # detect_screenout(self)
+        #detect_quota(self)
 
 class QuestionPage(Page):
     form_model = Player
@@ -86,7 +86,6 @@ class PicturePage2(Page):
 class RedirectPage(Page):
     def vars_for_template(self):
         return {'participant_label': safe_json(self.participant.label)}
-    
 
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
     form_model = Player
@@ -94,8 +93,8 @@ class RedirectPage(Page):
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
-                GenderPage,
-                AgePage,
+                #GenderPage,
+                #AgePage,
                 QuestionPage,
                 PopoutPage,
                 PicturePage1,

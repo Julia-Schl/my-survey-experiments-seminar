@@ -54,16 +54,17 @@ class Player(BasePlayer):
     screen_width = models.IntegerField(initial=-999)
     time_start = models.StringField(initial='-999')
 
+    eligible_question = models.IntegerField()
+
     #GenderPage
-    gender = models.IntegerField(initial=-999, blank=False)
+    #gender = models.IntegerField(initial=-999, blank=False)
 
     #AgePage
-    age_question = models.IntegerField(
-        label= "<b>What is your age?</b>", # allow just adults 
-        min=18, 
-        max=100
-    )
-    eligible_question = models.IntegerField()
+    #age_question = models.IntegerField(
+        #label= "<b>What is your age?</b>", # allow just adults 
+        #min=18, 
+       # max=100
+    #)
 
     #QuestianPage
     name_question = models.StringField(
