@@ -16,6 +16,12 @@ class Welcome(Page):
     def before_next_page(self):
         detect_screenout(self)
         detect_quota(self)
+    
+    def vars_for_template(self):
+        return {'participant_label': safe_json(self.participant.label),
+                'screenout': safe_json(self.player.screenout),
+                'quota': safe_json(self.player.quota)
+                }
 
 class GenderPage(Page):    
     form_model = Player
@@ -47,11 +53,6 @@ class QuestionPage(Page):
     form_model = Player
     form_fields = ['name_question', 'study_question', 'academic_level', 'time_question']
 
-    def vars_for_template(self):
-        return {'participant_label': safe_json(self.participant.label),
-                'screenout': safe_json(self.player.screenout),
-                'quota': safe_json(self.player.quota)
-                }
 
 class EndPage(Page):
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
@@ -95,8 +96,8 @@ class RedirectPage(Page):
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
-                #GenderPage,
-                #AgePage,
+                GenderPage,
+                AgePage,
                 QuestionPage,
                 PopoutPage,
                 PicturePage1,
