@@ -12,30 +12,41 @@ from survey_example_appfolder.HelperFunctions import detect_screenout, detect_qu
 class Welcome(Page):
     form_model = Player
     form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'time_start', 'eligible_question']
-#we want to detect all the screenouts and the quota reached right away
-    def before_next_page(self):
-        #here we are increasing the counter for each player that goes past the Welcome Page
-        #self.group.counter += 1
 
+    def before_next_page(self):
         detect_screenout(self)
         detect_quota(self)
 
-    
-
-class QuestionPage(Page):
+class GenderPage(Page):    
     form_model = Player
-    form_fields = ['age_question', 'name_question', 'gender', 'study_question', 'academic_level', 'time_question']
+    form_fields = ['gender']
+                
+    def vars_for_template(self):
+        return {'participant_label': safe_json(self.participant.label),
+                'screenout': safe_json(self.player.screenout),
+                'quota': safe_json(self.player.quota)
+                }
+                
     def before_next_page(self):
         if self.player.gender == 1:  # Male
             self.group.counter_male += 1
         elif self.player.gender == 2:  # Female
             self.group.counter_female += 1
 
+        detect_quota(self)
+
+class AgePage(Page):    
+    form_model = Player
+    form_fields = ['age_question']
+                
+    def before_next_page(self):
         detect_screenout(self)
         detect_quota(self)
 
-    
-    
+class QuestionPage(Page):
+    form_model = Player
+    form_fields = ['name_question', 'study_question', 'academic_level', 'time_question']
+
 
 class EndPage(Page):
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
@@ -50,11 +61,6 @@ class PopoutPage(Page):
     form_model = Player
     form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
 
-    def vars_for_template(self):
-        return {'participant_label': safe_json(self.participant.label),
-                'screenout': safe_json(self.player.screenout),
-                'quota': safe_json(self.player.quota)
-                }
 
 class PicturePage1(Page):
     form_model = Player
@@ -84,6 +90,8 @@ class RedirectPage(Page):
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
+                GenderPage,
+                AgePage,
                 QuestionPage,
                 PopoutPage,
                 PicturePage1,

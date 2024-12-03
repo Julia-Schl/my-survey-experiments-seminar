@@ -29,6 +29,11 @@ def detect_screenout(self):
     if self.player.eligible_question == 2: # screen out anybody that is not eligible
         self.player.screenout = 1
 
+    
+    #if self.player.age_question >= 40:  
+        #self.player.screenout = 1
+
+
 def detect_quota(self):
     '''this function will check if a quota is already filled'''
     number_female = self.group.counter_female

@@ -53,19 +53,23 @@ class Player(BasePlayer):
     screen_height = models.IntegerField(initial=-999)
     screen_width = models.IntegerField(initial=-999)
     time_start = models.StringField(initial='-999')
-    eligible_question = models.IntegerField()
 
-    #QuestianPage
-    name_question = models.StringField(
-        label= "<b>What is your name?</b>")
+    #GenderPage
+    gender = models.IntegerField(initial=-999, blank=False)
+
+    #AgePage
     age_question = models.IntegerField(
         label= "<b>What is your age?</b>", # allow just adults 
         min=18, 
         max=100
     )
-    gender = models.IntegerField(initial=-999, blank=False)
+    eligible_question = models.IntegerField()
 
-    academic_level =models.IntegerField(initial=-999, blank=False)
+    #QuestianPage
+    name_question = models.StringField(
+        label= "<b>What is your name?</b>")
+
+    academic_level = models.IntegerField(initial=-999, blank=False)
     
     study_question = models.StringField(
         label= "<b>What is your study programm?</b> <br>(Please enter the full name in English.)")

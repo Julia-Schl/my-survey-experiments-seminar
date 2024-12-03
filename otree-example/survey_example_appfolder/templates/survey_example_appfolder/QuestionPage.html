@@ -8,22 +8,13 @@
 {% endblock %}
 
 {% block content %}
+<!-- persist-raw script input -->
+<script src="{% static 'persist-raw.js' %}"></script>
+
 <input id="time_question" type="hidden" name="time_question" />
 <br>
     <!-- This is the most basic way of implementing an input field -->
-    {{ formfield "age_question"}}
     {{ formfield "name_question"}}
-    <br>
-
-    <p><b>Which gender do you identify with?</b></p>
-    <input type="radio" name="gender" value="1" required/> Male
-    <br>
-    <input type="radio" name="gender" value="2" required/> Female
-    <br>
-    <input type="radio" name="gender" value="3" required/> Divers
-    <br>
-    <input type="radio" name="gender" value="4" required/> Prefer not to say
-    <br>
     <br>
 
     
