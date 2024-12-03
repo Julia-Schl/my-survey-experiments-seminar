@@ -13,24 +13,24 @@ class Welcome(Page):
     form_model = Player
     form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'time_start', 'eligible_question']
 
-#with the function before_next_page you can can control what should happen. It is a nice feature for filtering
-#or also setting variables
-    def before_next_page(self):
-        #here we are increasing the counter for each player that goes past the Welcome Page
-        self.group.counter += 1
 
     
 #we want to detect all the screenouts and the quota reached right away
-        detect_screenout(self)
-        detect_quota(self)
+    detect_screenout(self)
+    detect_quota(self)
 
     
 
 class QuestionPage(Page):
     form_model = Player
     form_fields = ['age_question', 'name_question', 'gender', 'study_question', 'academic_level', 'time_question']
+    def before_next_page(self):
+        if self.player.gender == 1:  # Male
+            self.group.counter_male += 1
+        elif self.player.gender == 2:  # Female
+            self.group.counter_female += 1
 
-     def vars_for_template(self):
+    def vars_for_template(self):
         return {'participant_label': safe_json(self.participant.label),
                 'screenout': safe_json(self.player.screenout),
                 'quota': safe_json(self.player.quota)

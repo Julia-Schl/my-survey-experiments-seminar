@@ -36,7 +36,8 @@ class Subsession(BaseSubsession):
           
 
 class Group(BaseGroup):
-    counter = models.IntegerField(initial = 0)
+    counter_female = models.IntegerField(initial = 0)
+    counter_male = models.IntegerField(initial = 0)
 
 
 class Player(BasePlayer):
