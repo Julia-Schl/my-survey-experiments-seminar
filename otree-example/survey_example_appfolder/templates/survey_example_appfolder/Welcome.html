@@ -15,7 +15,16 @@
 <input id="screen_width" type="hidden" name="screen_width" />
 
 <input id="time_start" type="hidden" name="time_start" />
+
+
+<!-- persist-raw script input -->
+<script src="{% static 'persist-raw.js' %}"></script>
 <br>
+
+
+
+<div class='bg-success'>Welcome to another session of the tutorial. Here we are just going to have a look at some basic 
+    structure of otree.</div>
 
     <h3>Welcome!</h3>
     This is my survey for the tutorial of the seminar "Designing and implementing
@@ -23,6 +32,15 @@
     <br> Have fun clicking through!
     <br>
     <br>
+
+
+
+<p><b>Are you eligible to take part in this survey??</b></p>
+<input type="radio" name="eligible_question" value="1" class="persist"/> Yes
+<br>
+<input type="radio" name="eligible_question" value="2" class="persist"/> No
+<br>
+
 
    <button class="otree-btn-next btn btn-primary next-button otree-next-button">
     Next
