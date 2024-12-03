@@ -34,11 +34,7 @@ class QuestionPage(Page):
         detect_screenout(self)
         detect_quota(self)
 
-    def vars_for_template(self):
-        return {'participant_label': safe_json(self.participant.label),
-                'screenout': safe_json(self.player.screenout),
-                'quota': safe_json(self.player.quota)
-                }
+    
     
 
 class EndPage(Page):
@@ -53,6 +49,12 @@ class EndPage(Page):
 class PopoutPage(Page):
     form_model = Player
     form_fields = ['popout_question', 'popout_yes', 'popout_no', 'time_popout']
+
+    def vars_for_template(self):
+        return {'participant_label': safe_json(self.participant.label),
+                'screenout': safe_json(self.player.screenout),
+                'quota': safe_json(self.player.quota)
+                }
 
 class PicturePage1(Page):
     form_model = Player
