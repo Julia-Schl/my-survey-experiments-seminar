@@ -12,12 +12,13 @@ from survey_example_appfolder.HelperFunctions import detect_screenout, detect_qu
 class Welcome(Page):
     form_model = Player
     form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'time_start', 'eligible_question']
-
-
-    
 #we want to detect all the screenouts and the quota reached right away
-    detect_screenout(self)
-    detect_quota(self)
+    def before_next_page(self):
+        #here we are increasing the counter for each player that goes past the Welcome Page
+        #self.group.counter += 1
+
+        detect_screenout(self)
+        detect_quota(self)
 
     
 
@@ -29,6 +30,9 @@ class QuestionPage(Page):
             self.group.counter_male += 1
         elif self.player.gender == 2:  # Female
             self.group.counter_female += 1
+
+        detect_screenout(self)
+        detect_quota(self)
 
     def vars_for_template(self):
         return {'participant_label': safe_json(self.participant.label),
