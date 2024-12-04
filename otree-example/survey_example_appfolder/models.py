@@ -33,11 +33,12 @@ class Subsession(BaseSubsession):
             #here we want to declare the players to different groups (2 in total)
             #we use a python function here from 'random' we imported earlier
             p.group_assignment = random.Random().randint(0, 1)
+        
           
 
 class Group(BaseGroup):
-    counter = models.IntegerField(initial = 0)
-
+    counter_male = models.IntegerField(initial = 0)
+    counter_female = models.IntegerField(initial = 0)
 
 
 class Player(BasePlayer):
@@ -45,7 +46,8 @@ class Player(BasePlayer):
 
     #variables on the HelperFunctions.py
     screenout = models.BooleanField(initial=0)
-    quota = models.BooleanField(initial=0)
+    quota_male = models.BooleanField(initial=0)
+    quota_female = models.BooleanField(initial=0)
 
     #Welcome
     device_type = models.IntegerField()
@@ -53,8 +55,6 @@ class Player(BasePlayer):
     screen_height = models.IntegerField(initial=-999)
     screen_width = models.IntegerField(initial=-999)
     time_start = models.StringField(initial='-999')
-
-    eligible_question = models.IntegerField()
 
 
     #GenderPage

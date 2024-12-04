@@ -12,37 +12,60 @@ from survey_example_appfolder.HelperFunctions import detect_screenout, detect_qu
 
 class Welcome(Page):
     form_model = Player
-    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'time_start', 'eligible_question']
+    form_fields = ['device_type', 'operating_system', 'screen_height', 'screen_width', 'time_start']
 
-#with the function before_next_page you can can control what should happen. It is a nice feature for filtering
-#or also setting variables
-    def before_next_page(self):
-        #here we are increasing the counter for each player that goes past the Welcome Page
-        self.group.counter += 1
-
-#we want to detect all the screenouts and the quota reached right away
-        detect_screenout(self)
-        detect_quota(self)
 
 class GenderPage(Page):    
     form_model = Player
     form_fields = ['gender']
 
+    def before_next_page(self):
+        #here we are increasing the counter for each player that goes past the Welcome Page
+        if self.player.gender == 1:  
+            self.group.counter_male += 1
+
+        if self.player.gender == 2:  
+            self.group.counter_female += 1
+        
+        detect_screenout(self)
+        detect_quota(self)
+
     def vars_for_template(self):
         return {'participant_label': safe_json(self.participant.label),
                 'screenout': safe_json(self.player.screenout),
-                'quota': safe_json(self.player.quota)
+                'quota_male': safe_json(self.player.quota_male),
+                'quota_female': safe_json(self.player.quota_female)
                 }
-                
+                    
 
 class AgePage(Page):    
     form_model = Player
     form_fields = ['age_question']
+
+    def before_next_page(self):
+
+#we want to detect all the screenouts and the quota reached right away
+        detect_screenout(self)
+        #detect_quota(self)
+
+    #def vars_for_template(self):
+        #return {'participant_label': safe_json(self.participant.label),
+                #'screenout': safe_json(self.player.screenout),
+                #'quota_male': safe_json(self.player.quota_male),
+                #'quota_female': safe_json(self.player.quota_female)
+                #}
                 
 
 class QuestionPage(Page):
     form_model = Player
     form_fields = ['name_question', 'study_question', 'academic_level', 'time_question']
+
+    def vars_for_template(self):
+        return {'participant_label': safe_json(self.participant.label),
+                'screenout': safe_json(self.player.screenout),
+                'quota_male': safe_json(self.player.quota_male),
+                'quota_female': safe_json(self.player.quota_female)
+                }
 
 
 
@@ -89,8 +112,8 @@ class RedirectPage(Page):
 
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
-                GenderPage,
                 AgePage,
+                GenderPage,
                 QuestionPage,
                 PopoutPage,
                 PicturePage1,

@@ -27,16 +27,30 @@ def detect_screenout(self):
     '''this function will check for characteristics a participant needs to 
     take part in the survey, (f.e. a certain age or being eligible to vote)'''
 
-    if self.player.eligible_question == 2: # screen out anybody that is not eligible
+    #if self.player.eligible_question == 2: # screen out anybody that is not eligible
+        #self.player.screenout = 1
+    
+    if self.player.age_question >= 40:
         self.player.screenout = 1
+
+
 
 def detect_quota(self):
     '''this function will check if a quota is already filled'''
-    participant_number = self.group.counter
+    participant_number_male = self.group.counter_male
+    participant_number_female = self.group.counter_female
+
+    self.player.quota_male = 0
+    self.player.quota_female = 0
+    
     #declare quota reached if we have more than 1 participant that started
-    if participant_number > 1:
-        self.player.quota = 1
+    if participant_number_male > 1:
+        self.player.quota_male = 1
+
+    if participant_number_female > 1:
+        self.player.quota_female = 1
     return None
+
 
 # def participant_count(self):
 #     '''if we want to count different things we might also implement a function here.
