@@ -36,11 +36,16 @@ class Subsession(BaseSubsession):
           
 
 class Group(BaseGroup):
-    pass
+    counter = models.IntegerField(initial = 0)
+
 
 
 class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
+
+    #variables on the HelperFunctions.py
+    screenout = models.BooleanField(initial=0)
+    quota = models.BooleanField(initial=0)
 
     #Welcome
     device_type = models.IntegerField()
@@ -48,6 +53,8 @@ class Player(BasePlayer):
     screen_height = models.IntegerField(initial=-999)
     screen_width = models.IntegerField(initial=-999)
     time_start = models.StringField(initial='-999')
+
+    eligible_question = models.IntegerField()
 
 
     #GenderPage
@@ -89,3 +96,5 @@ class Player(BasePlayer):
     #EndPage
     group_assignment = models.IntegerField() #the variable we declared on top
     
+
+
