@@ -7,17 +7,15 @@
 {% endblock %}
 
 {% block content %}
-<!-- persist-raw script input -->
-<script src="{% static 'persist-raw.js' %}"></script>
 
     <p><b>Which gender do you identify with?</b></p>
-    <input type="radio" name="gender" value="1" required class="persist"/> Male
+    <input type="radio" name="gender" value="1" required /> Male
     <br>
-    <input type="radio" name="gender" value="2" required class="persist"/> Female
+    <input type="radio" name="gender" value="2" required /> Female
     <br>
-    <input type="radio" name="gender" value="3" required class="persist"/> Divers
+    <input type="radio" name="gender" value="3" required /> Divers
     <br>
-    <input type="radio" name="gender" value="4" required class="persist"/> Prefer not to say
+    <input type="radio" name="gender" value="4" required /> Prefer not to say
     <br>
     
    <button class="otree-btn-next btn btn-primary next-button otree-next-button">
@@ -25,32 +23,3 @@
 </button> 
 
 {% endblock %}
-
-
-{% block scripts %}
-<script>
-        window.onload = function () {
-//import variables 
-var screenout = {{ screenout }}; //screenout boolean
-var quota= {{ quota }}; //quota boolean
-var label = {{ participant_label }}; //m or tic number
-
-
-// for the purpose of this seminar we have html files instead of links
-var url_screenout = "/static/ScreenoutLink.html";
-var url_quota = "/static/QuotaFullLink.html";
-
-//build urls 
-//var url_screenout = "https://mingle.respondi.com/s/1608318/ospe.php3?c_0002=0&return_tic=" + label;
-//c_002 = 0
-
-//var url_quota = "https://mingle.respondi.com/s/1608318/ospe.php3?c_0002=2&return_tic=" + label; 
-//c_002 = 2
-
-if (screenout==1) {window.location.replace(url_screenout);}
-if (quota==1) {window.location.replace(url_quota);}
-}
-
-</script>
-{% endblock %}
-

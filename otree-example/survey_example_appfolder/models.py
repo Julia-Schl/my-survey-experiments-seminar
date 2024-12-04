@@ -36,16 +36,11 @@ class Subsession(BaseSubsession):
           
 
 class Group(BaseGroup):
-    counter_female = models.IntegerField(initial = 0)
-    counter_male = models.IntegerField(initial = 0)
+    pass
 
 
 class Player(BasePlayer):
     #this is the most important feature of this file. We can collect all the variables used on the html pages here
-    
-    #variables on the HelperFunctions.py
-    screenout = models.BooleanField(initial=0)
-    quota = models.BooleanField(initial=0)
 
     #Welcome
     device_type = models.IntegerField()
@@ -54,17 +49,16 @@ class Player(BasePlayer):
     screen_width = models.IntegerField(initial=-999)
     time_start = models.StringField(initial='-999')
 
-    eligible_question = models.IntegerField()
 
     #GenderPage
-    #gender = models.IntegerField(initial=-999, blank=False)
+    gender = models.IntegerField(initial=-999, blank=False)
 
     #AgePage
-    #age_question = models.IntegerField(
-        #label= "<b>What is your age?</b>", # allow just adults 
-        #min=18, 
-       # max=100
-    #)
+    age_question = models.IntegerField(
+        label= "<b>What is your age?</b>", # allow just adults 
+        min=18, 
+        max=100
+    )
 
     #QuestianPage
     name_question = models.StringField(
