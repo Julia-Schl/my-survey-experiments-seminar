@@ -5,8 +5,9 @@ from selenium.webdriver.common.by import By
 import random
 import string
 
-# this is the session wide link
-link = 'http://localhost:8000/join/bofohadi'
+### change this link to the current session link
+# this is the session wide link 
+link = 'http://localhost:8000/join/zipoloso'
 
 def build_driver():
     # Set up the driver
