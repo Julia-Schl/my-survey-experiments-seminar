@@ -7,7 +7,7 @@ import string
 
 ### change this link to the current session link
 # this is the session wide link 
-link = 'http://localhost:8000/join/zipoloso'
+link = 'http://localhost:8000/join/gipulela'
 
 def build_driver():
     # Set up the driver
