@@ -9,7 +9,7 @@ import time
 
 ### change this link to the current session link
 # this is the session wide link 
-link = 'http://localhost:8000/join/jukolohe'
+link = 'http://localhost:8000/join/zifijupu'
 
 def build_driver():
     # Set up the driver
