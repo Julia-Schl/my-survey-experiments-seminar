@@ -5,9 +5,11 @@ from selenium.webdriver.common.by import By
 import random
 import string
 
+import time
+
 ### change this link to the current session link
 # this is the session wide link 
-link = 'http://localhost:8000/join/hopuheli'
+link = 'http://localhost:8000/join/jukolohe'
 
 def build_driver():
     # Set up the driver
@@ -114,7 +116,7 @@ def popout_page(driver):
 
 
 def scroller(driver, element):
-    driver.execute_script('arguments[0].scrollIntoView(true);', element)
+    driver.execute_script('arguments[0].scrollIntoView({block: "center"});', element)
     time.sleep(0.3)  # short pause to stabilize 
     element.click()
 
@@ -144,15 +146,15 @@ def picture_pages(driver):
     
     #next 
     print('picture page done')
-    driver.find_element(By.XPATH, '//*[@id="form"]/div/button').click()
-    
+    next_button = driver.find_element(By.XPATH, '//*[@id="form"]/div/button')
+    next_button.click()
     
 
 
 def end_page(driver):
     # submit answers button
     driver.find_element(By.XPATH, '//*[@id = "form"]/div/button').click()
-
+    print('end page done')
 
 def run_bots(n_times, link):
     driver = build_driver()  # initialize the driver
@@ -189,5 +191,5 @@ def run_bots(n_times, link):
         except Exception as e:
             print(f"Bot_{i+1} encountered an error: {e}")
 
-
+# test with one bot too much
 run_bots(n_times=21, link=link)

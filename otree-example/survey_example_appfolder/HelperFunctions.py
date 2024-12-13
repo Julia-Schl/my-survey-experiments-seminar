@@ -44,10 +44,10 @@ def detect_quota(self):
     self.player.quota_female = 0
     
     #declare quota reached if we have more than 1 participant that started
-    if participant_number_male > 6:
+    if participant_number_male > 8:
         self.player.quota_male = 1
 
-    if participant_number_female > 6:
+    if participant_number_female > 8:
         self.player.quota_female = 1
     return None
 
